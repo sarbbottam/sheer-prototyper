@@ -10,6 +10,7 @@ export default class Layout extends React.Component {
           <meta name="description" content=""/>
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
           <title>{this.props.title}</title>
+          <link rel="stylesheet" type="text/css" href="css/ltr.css" />
         </head>
         <body>
           {this.props.children}
