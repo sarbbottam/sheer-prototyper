@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Layout extends React.Component {
+class Layout extends React.Component {
   render() {
     return (
       <div>
@@ -9,3 +9,9 @@ export default class Layout extends React.Component {
     );
   }
 }
+
+Layout.propTypes = {
+  children: React.PropTypes.object
+};
+
+export default Layout;

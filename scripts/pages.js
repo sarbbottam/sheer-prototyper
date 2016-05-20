@@ -1,5 +1,5 @@
-import dumb from '../src/pages/dumb'
+import dumb from '../src/pages/dumb';
 
 export default {
   dumb
-}
+};

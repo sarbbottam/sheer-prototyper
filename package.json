@@ -4,7 +4,7 @@
   "description": "sheer prototyper",
   "scripts": {
     "setup": "rm -rf dist; mkdir -p dist/css",
-    "prebuild-html": "eslint src/**/*",
+    "prebuild-html": "xo",
     "build-html": "babel-node ./scripts/build",
     "postcss": "postcss -c config/postcss.json",
     "rtlcss": "rtlcss ./dist/css/ltr.css ./dist/css/rtl.css",
@@ -37,6 +37,8 @@
     "babel-preset-react": "^6.5.0",
     "cssnano-cli": "^1.0.3",
     "eslint": "^2.3.0",
+    "eslint-config-xo-react": "^0.7.0",
+    "eslint-plugin-react": "^5.1.1",
     "js-beautify": "^1.6.2",
     "postcss": "^5.0.19",
     "postcss-calc": "^5.2.0",
@@ -52,6 +54,12 @@
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "rtlcss": "^2.0.2",
-    "sheer": "0.0.15"
+    "sheer": "0.0.15",
+    "xo": "^0.15.1"
+  },
+  "xo": {
+    "extends": "xo-react",
+    "esnext": true,
+    "space": true
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 
-export default class Layout extends React.Component {
+class Base extends React.Component {
+
   render() {
     return (
       <html lang={this.props.lang}>
@@ -10,7 +11,7 @@ export default class Layout extends React.Component {
           <meta name="description" content=""/>
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
           <title>{this.props.title}</title>
-          <link rel="stylesheet" type="text/css" href="css/ltr.css" />
+          <link rel="stylesheet" type="text/css" href="css/ltr.css"/>
         </head>
         <body>
           {this.props.children}
@@ -19,3 +20,11 @@ export default class Layout extends React.Component {
     );
   }
 }
+
+Base.propTypes = {
+  lang: React.PropTypes.string,
+  title: React.PropTypes.string,
+  children: React.PropTypes.object
+};
+
+export default Base;
