@@ -3,16 +3,17 @@
   "version": "0.0.0",
   "description": "sheer prototyper",
   "scripts": {
-    "setup": "rm -rf dist; mkdir -p dist/css",
-    "prebuild-html": "xo",
-    "build-html": "babel-node ./scripts/build",
+    "clean:dir": "shx rm -rf dist",
+    "create:dir": "shx mkdir -p dist/css",
+    "setup": "npm-run-all *:dir",
+    "prebuild:html": "xo",
+    "build:html": "babel-node ./scripts/build",
     "postcss": "postcss -c config/postcss.json",
     "rtlcss": "rtlcss ./dist/css/ltr.css ./dist/css/rtl.css",
-    "cssnano-ltr": "cssnano dist/css/ltr.css dist/css/ltr.min.css --discardComments.removeAll",
-    "cssnano-rtl": "cssnano dist/css/rtl.css dist/css/rtl.min.css --discardComments.removeAll",
-    "cssnano": "npm run cssnano-ltr && npm run cssnano-rtl",
-    "build-css": "npm run postcss && npm run rtlcss && npm run cssnano",
-    "build": "npm run setup && npm run build-html && npm run build-css"
+    "cssnano:ltr": "cssnano dist/css/ltr.css dist/css/ltr.min.css --discardComments.removeAll",
+    "cssnano:rtl": "cssnano dist/css/rtl.css dist/css/rtl.min.css --discardComments.removeAll",
+    "build:css": "npm-run-all -s postcss rtlcss cssnano:*",
+    "build": "npm-run-all -s setup -p build:*"
   },
   "keywords": [
     "Sheer",
@@ -40,6 +41,7 @@
     "eslint-config-xo-react": "^0.7.0",
     "eslint-plugin-react": "^5.1.1",
     "js-beautify": "^1.6.2",
+    "npm-run-all": "^2.1.1",
     "postcss": "^5.0.19",
     "postcss-calc": "^5.2.0",
     "postcss-cli": "^2.5.1",
@@ -55,6 +57,7 @@
     "react-dom": "^0.14.7",
     "rtlcss": "^2.0.2",
     "sheer": "0.0.15",
+    "shx": "^0.1.2",
     "xo": "^0.15.1"
   },
   "xo": {
